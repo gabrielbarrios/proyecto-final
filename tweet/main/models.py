@@ -15,6 +15,6 @@ class User(models.Model):
 		return 'User: %s - %s %s' % (self.pk, self.last_name, self.first_name)
 
 class Tweet(models.Model):
-	owner = models.ForeignKey('User')
+	owner = models.ForeignKey('User' , related_name='tweets')
 	status = models.CharField(max_length = 50)
 	created_at = models.DateTimeField(auto_now_add=True)

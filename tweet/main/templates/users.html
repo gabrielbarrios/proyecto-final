@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Users</title>
+</head>
+<body>
+    <div>
+        Usuarios :
+    </div>
+    <hr/><h3>Numero de usuarios     ({{ users.count }})</h3>
+    {% for user in users %}
+    <div>
+        <h3>{{ user.nick_name }} - {{ user.last_name }}</h3>
+    </div>
+    {% endfor %}
+</body>
+</html>

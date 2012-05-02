@@ -13,7 +13,7 @@ def users(request):
 def add_user(request):
     form = UserForm()
     if request.method == 'POST':
-        form = UserForm(request.POST)
+        form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('users')
@@ -31,3 +31,27 @@ def add_tweet(request):
     return render_to_response('add_user.html', {
 		'form': form,
     }, RequestContext(request))
+
+def edit_user(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    form = UserForm(instance=user)
+    if request.method == 'POST':
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    return render_to_response('add_user.html', {
+        'form': form,
+        }, RequestContext(request))
+
+def edit_tweet(request, pk):
+    tweet = get_object_or_404(Tweet, pk=pk)
+    form = TweetForm(instance=tweet)
+    if request.method == 'POST':
+        form = TweetForm(request.POST, instance=tweet)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    return render_to_response('add_user.html', {
+        'form': form,
+        }, RequestContext(request))

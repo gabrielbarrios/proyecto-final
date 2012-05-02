@@ -6,6 +6,7 @@ class User(models.Model):
 	last_name = models.CharField(max_length = 50)	
 	image_profile = models.ImageField(upload_to = 'photo')
 	password = models.CharField(max_length = 50)
+	#password = models.CharField(_('password'), max_length=128)
 	birth_date = models.DateField()
 	email = models.CharField(max_length = 50)
 	location = models.CharField(max_length = 50)

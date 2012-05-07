@@ -1,9 +1,9 @@
 from django import forms
 from main.models import User, Tweet
-import pdb; pdb.set_trace() 
 
 
 class UserForm(forms.ModelForm):
+	password = forms.CharField(widget = forms.PasswordInput)
 	class Meta: 
 		model = User
 

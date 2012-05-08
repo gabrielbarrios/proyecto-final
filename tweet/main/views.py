@@ -61,3 +61,11 @@ def edit_tweet(request, pk):
     return render_to_response('add_user.html', {
         'form': form,
         }, RequestContext(request))
+
+def delete_user(request, pk):
+    User.objects.filter(pk=pk).delete()
+    return redirect('users')
+
+def delete_tweet(request, pk):
+    Tweet.objects.filter(pk=pk).delete()
+    return redirect('users')

@@ -5,5 +5,7 @@ urlpatterns = patterns('main.views',
         url(r'^user/(?P<pk>\d+)$', 'show_user', name='show_user'),
         url(r'^add/tweet/$', 'add_tweet',name='add_tweet'),
         url(r'^edit/user/(?P<pk>\d+)$', 'edit_user', name='edit_user'),   
-		url(r'^edit/tweet/(?P<pk>\d+)$', 'edit_tweet', name='edit_tweet'),   
+		url(r'^edit/tweet/(?P<pk>\d+)$', 'edit_tweet', name='edit_tweet'),
+		url(r'^user/delete/(?P<pk>\d+)$', 'delete_user', name='delete_user'),   
+		url(r'^tweet/delete/(?P<pk>\d+)$', 'delete_tweet', name='delete_tweet'),      
 )

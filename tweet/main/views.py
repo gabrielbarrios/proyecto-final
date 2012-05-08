@@ -10,6 +10,12 @@ def users(request):
         'users': users,
     })
 
+def show_user(request, pk):
+    users = get_object_or_404(User, pk=pk)           
+    return render_to_response('show_user.html', {
+        'users': users
+    })
+
 def add_user(request):
     form = UserForm()
     if request.method == 'POST':

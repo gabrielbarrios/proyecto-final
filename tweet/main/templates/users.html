@@ -6,10 +6,11 @@
     <div>
         Usuarios :
     </div>
-    <hr/><h3>Numero de usuarios     ({{ users.count }})</h3>
+    <hr/><h3>Numero de usuarios     ({{ users.count }})   tweets {{ tweet.count }}</h3>
     {% for user in users %}
     <div>
         <h3>{{ user.nick_name }} - {{ user.last_name }}</h3>
+        <a img="{{ user.image_profile }}"></a>
 	<div class="comments">
             {% for tweet in user.tweets.all %}
             <div>Tweet({{ tweet.pk }})    : {{ tweet.status }}</div>

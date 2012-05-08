@@ -7,8 +7,11 @@ class UserForm(forms.ModelForm):
 
 	class Meta: 
 		model = User
-		readonly_fields=('nick_name',)
+		exclude = ('nick_name', 'email', 'birth_date',)
+
+
 
 class TweetForm(forms.ModelForm):
 	class Meta: 
 		model = Tweet
+		exclude = ('owner',)

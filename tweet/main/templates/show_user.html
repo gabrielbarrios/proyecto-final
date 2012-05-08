@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>{{ users.name }} - Users</title>
+	<script type="text/javascript">	
+		startList = function() {
+		if (document.all&&document.getElementById) {
+		navRoot = document.getElementById("nav");
+		for (i=0; i<navRoot.childNodes.length; i++) {
+		node = navRoot.childNodes[i];
+		if (node.nodeName=="LI") {
+		node.onmouseover=function() {
+		this.className+=" over";
+		  }
+		  node.onmouseout=function() {
+		  this.className=this.className.replace(" over", "");
+		   }
+		   }
+		  }
+		 }
+		}
+		window.onload=startList;
+	</script>
+	<style type="text/css">
+		body {
+			background-color:#34bc9d;		
+		}		
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		  }
+	
+		li ul {
+			display: none;
+			position: absolute; 
+			top: 1em;
+			left: 0;
+		}
+		li > ul {
+			top: auto;
+			left: auto;
+		}
+		li:hover ul, li.over ul{ display: block; }
+	</style>
+</head>
+<body>
+	<a href="{% url users %}">User</a>
+	<h1>{{ users.name }} {{ users.tweets.count }}</h1>
+	<p>Nick : {{ users.nick_name }}</p>
+	<p>Imagen: </p><br/>
+	<p>imagen /home/gabriel/proyectos/proyecto_final/tweet/{{ users.image_profile }}</p>
+	<img src="{{ users.image_profile }}"/>
+		<ul id="nav">
+			<li><h3>Acerca el puntero para ver los tweet:</h3>
+				<ul>
+					<p>{% for tweet in users.tweets.all %}
+						<div> <li>ID : {{ tweet.pk }} - status: {{ tweet.status }} <br/> Created_at  :  {{tweet.created_at}} </li><br/></div>
+						{% endfor %}
+					</p>
+				</ul>
+			</li>
+		</ul>
+</body>
+
+</html>

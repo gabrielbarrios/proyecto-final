@@ -30,7 +30,7 @@ def add_user(request):
 def add_tweet(request):
     form = TweetForm()
     if request.method == 'POST':
-		form = TweetForm(request.POST)
+		form = TweetForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
 			return redirect('users')
@@ -45,7 +45,7 @@ def edit_user(request, pk):
         form = UserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('users')
     return render_to_response('add_user.html', {
         'form': form,
         }, RequestContext(request))
@@ -57,7 +57,7 @@ def edit_tweet(request, pk):
         form = TweetForm(request.POST, instance=tweet)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('users')
     return render_to_response('add_user.html', {
         'form': form,
         }, RequestContext(request))

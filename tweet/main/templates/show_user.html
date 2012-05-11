@@ -8,9 +8,12 @@
 	<h1>{{ users.name }} {{ users.tweets.count }}</h1>
 	<p>Nick : {{ users.nick_name }}</p>
 	<p>Imagen: </p><br/>
-	<p>imagen: {{ users.image_profile }} <br/>media_root {{ MEDIA_ROOT }} media_url {{ MEDIA_URL }} static_url {{ STATIC_URL }}</p>
+	<p>imagen: {{ users.image_profile }} <br/>media_root {{ MEDIA_ROOT }}<br/> media_url {{ MEDIA_URL }} <br/>static_url {{ STATIC_URL }}</p>
+	<h1>{{ users.image_profile }}</h1>
+	<img src="{{ users.image_profile }}"/>
 	<img src="{{ MEDIA_URL }}{{ users.image_profile }}"/>
-	<img src="{{ STATIC_URL }}perro.jpg"/>
+	<img src="{{ MEDIA_ROOT }}{{ users.image_profile }}"/>
+	<img src="{{ STATIC_URL }}{{ users.image_profile }}"/>
 		<ul id="nav">
 			<li><h3>tweets:</h3>
 				<ul>

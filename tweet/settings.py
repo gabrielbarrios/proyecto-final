@@ -1,5 +1,8 @@
 # Django settings for tweet project.
 
+import os
+RUTA_PROYECTO = os.path.dirname(os.path.realpath(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -46,14 +49,20 @@ USE_L10N = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 
-MEDIA_ROOT = '/home/gabriel/proyectos/proyecto_final/tweet/'
+MEDIA_ROOT = os.path.join(RUTA_PROYECTO,'carga')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 
+<<<<<<< HEAD
 MEDIA_URL = '/media/'
 #'/home/gabriel/proyectos/proyecto_final/tweet/'
+=======
+
+MEDIA_URL = '/media/'
+
+>>>>>>> 76f3591bde01d0f7ff677207f8f0efa068dac26e
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.

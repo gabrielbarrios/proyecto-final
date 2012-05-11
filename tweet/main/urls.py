@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+
 urlpatterns = patterns('main.views',
     url(r'^$', 'users', name='users'),
         url(r'^add/user/$', 'add_user',name='add_user'),
@@ -8,4 +9,4 @@ urlpatterns = patterns('main.views',
 		url(r'^edit/tweet/(?P<pk>\d+)$', 'edit_tweet', name='edit_tweet'),
 		url(r'^user/delete/(?P<pk>\d+)$', 'delete_user', name='delete_user'),   
 		url(r'^tweet/delete/(?P<pk>\d+)$', 'delete_tweet', name='delete_tweet'),      
-)
+	)

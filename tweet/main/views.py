@@ -27,6 +27,7 @@ def add_user(request):
         'form': form,
     }, RequestContext(request))
 
+
 def add_tweet(request):
     form = TweetForm()
     if request.method == 'POST':
@@ -42,7 +43,7 @@ def edit_user(request, pk):
     user = get_object_or_404(User, pk=pk)
     form = UserEditForm(instance=user)
     if request.method == 'POST':
-        form = UserForm(request.POST, instance=user)
+        form = UserEditForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
             return redirect('users')

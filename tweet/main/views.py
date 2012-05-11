@@ -1,7 +1,7 @@
 from main.models import User, Tweet
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
-from main.forms import UserForm, TweetForm, UserEditForm
+from main.forms import UserForm, TweetForm, UserEditForm, TweetEditForm
 from django.contrib.auth.decorators import login_required
 
 def users(request):
@@ -53,9 +53,9 @@ def edit_user(request, pk):
 
 def edit_tweet(request, pk):
     tweet = get_object_or_404(Tweet, pk=pk)
-    form = TweetForm(instance=tweet)
+    form = TweetEditForm(instance=tweet)
     if request.method == 'POST':
-        form = TweetForm(request.POST, instance=tweet)
+        form = TweetEditForm(request.POST, instance=tweet)
         if form.is_valid():
             form.save()
             return redirect('users')

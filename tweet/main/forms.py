@@ -13,9 +13,11 @@ class UserEditForm(forms.ModelForm):
 		model = User
 		exclude = ('nick_name', 'email', 'birth_date',)
 
-
-
 class TweetForm(forms.ModelForm):
+	class Meta: 
+		model = Tweet
+
+class TweetEditForm(forms.ModelForm):
 	class Meta: 
 		model = Tweet
 		exclude = ('owner',)

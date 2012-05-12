@@ -16,6 +16,14 @@ def show_user(request, pk):
         'users': users
     }, RequestContext(request))
 
+
+def show_follow_me(request, pk):
+    users_owner = get_object_or_404(User, pk=pk)           
+    return render_to_response('show_follow_me.html', {
+        'users_owner': users_owner
+    }, RequestContext(request))
+
+
 def add_user(request):
     form = UserForm()
     if request.method == 'POST':

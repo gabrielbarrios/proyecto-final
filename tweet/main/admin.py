@@ -10,7 +10,5 @@ class UserAdmin(admin.ModelAdmin):
 class TweetAdmin(admin.ModelAdmin):
 	list_display = ('owner', 'status',)
 
-
-
 admin.site.register(User, UserAdmin)
 admin.site.register(Tweet, TweetAdmin)

@@ -5,15 +5,11 @@
 </head>
 <body>
 	<a href="{% url users %}">User</a>
-	<h1>{{ users.name }} {{ users.tweets.count }}</h1>
+	<h1>{{ users.first_name }} {{ users.last_name }}</h1>
+	<h3>Cantidad de Tweets: {{ users.tweets.count }}</h3>
 	<p>Nick : {{ users.nick_name }}</p>
 	<p>Imagen: </p><br/>
-	<p>imagen: {{ users.image_profile }} <br/>media_root {{ MEDIA_ROOT }}<br/> media_url {{ MEDIA_URL }} <br/>static_url {{ STATIC_URL }}</p>
-	<h1>{{ users.image_profile }}</h1>
-	<img src="{{ users.image_profile }}"/>
-	<img src="{{ MEDIA_URL }}{{ users.image_profile }}"/>
-	<img src="{{ MEDIA_ROOT }}{{ users.image_profile }}"/>
-	<img src="{{ STATIC_URL }}{{ users.image_profile }}"/>
+	<img id="image" src="{{ MEDIA_URL }}{{ users.image_profile }}"/>
 		<ul id="nav">
 			<li><h3>tweets:</h3>
 				<ul>
@@ -25,5 +21,4 @@
 			</li>
 		</ul>
 </body>
-
 </html>

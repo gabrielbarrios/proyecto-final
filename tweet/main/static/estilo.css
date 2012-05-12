@@ -17,5 +17,8 @@ li > ul {
 	top: auto;
 	left: auto;
 }
+#image {
+	width: 150px; height:150px;
+}
 li:hover ul, li.over ul{ display: block; }
 
